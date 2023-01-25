@@ -1,3 +1,3 @@
-import { addForm } from "./addForm";
+import { hof } from './task1';
 
-addForm(document.querySelector("#app") as HTMLElement);
+hof();
