@@ -15,9 +15,9 @@ export const spiral = function (matrix: number[][]): number[] {
                 arrResult.push(matrix[m][matrix[m].length - 1]);
                 matrix[m].length = matrix[m].length - 1;
             }
-            if (matrix[0].length === 0) {
-                matrix.shift();
-            }
+            // if (matrix[0].length === 0) {
+            //     matrix.shift();
+            // }
         }
         console.log(matrix);
         if (matrix.length != undefined && matrix[0] != undefined) {
@@ -27,9 +27,9 @@ export const spiral = function (matrix: number[][]): number[] {
                     matrix[matrix.length - 1].length - 1;
             }
             matrix.length = matrix.length - 1;
-            if (matrix[0].length === 0) {
-                matrix.shift();
-            }
+            // if (matrix[0].length === 0) {
+            //     matrix.shift();
+            // }
         }
         console.log(matrix);
         if (matrix.length != undefined && matrix[0] != undefined) {
@@ -39,9 +39,9 @@ export const spiral = function (matrix: number[][]): number[] {
                     matrix[z - 1].shift();
                 }
             }
-            if (matrix[0].length === 0) {
-                matrix.shift();
-            }
+            // if (matrix[0].length === 0) {
+            //     matrix.shift();
+            // }
         }
         console.log(matrix);
     }
