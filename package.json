@@ -81,5 +81,9 @@
         "setupFiles": [
             "jest-localstorage-mock"
         ]
+    },
+    "lint-staged": {
+        "*.ts": "eslint --fix",
+        "*.{ts,css,md}": "prettier --write"
     }
 }
