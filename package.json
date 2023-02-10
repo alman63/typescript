@@ -50,9 +50,7 @@
         "webpack-dev-server": "^3.11.0"
     },
     "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
+        "pre-commit": "lint-staged"
     },
     "lint-staged": {
         "*.js,*.ts": [
