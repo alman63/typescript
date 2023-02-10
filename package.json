@@ -55,7 +55,7 @@
     "lint-staged": {
         "*.js,*.ts": [
             "prettier --write",
-            "eslint --cache --fix --ext .js,.ts"
+            "eslint  --fix --ext .js,.ts"
         ],
         "*.{css,md}": "prettier --write"
     },
