@@ -25,7 +25,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({ template: "index.html" }),
-    
+
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HandlebarsPlugin({
@@ -37,13 +37,9 @@ module.exports = {
       // you can also add a [path] variable, which will emit the files with their relative path, like
       // output: path.join(process.cwd(), "build", [path], "[name].html"),
 
- 
       // globbed path to partials, where folder/filename is unique
-      partials: [
-        path.join(process.cwd(), "partials", "**", "*.hbs")
-      ],
-
-    })
+      partials: [path.join(process.cwd(), "partials", "**", "*.hbs")],
+    }),
   ],
   module: {
     rules: [
