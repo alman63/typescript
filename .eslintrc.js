@@ -26,5 +26,8 @@ module.exports = {
         'no-plusplus': 'off',
         'import/no-unresolved': 'off',
         'import/extensions': 'off',
+        'func-names': 'off',
+        'no-else-return': 'off',
+        'no-lonely-if': 'off',
     },
 };
