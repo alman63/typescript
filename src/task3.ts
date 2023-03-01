@@ -1,19 +1,55 @@
 // Реализовать функцию параллельной потоковой обработки данных.
 // В конструктор передается число парралельных "потоков",
 // которое указывает сколько данных обрабатывается в конкретный момент времени
-export function Parallel(count:number) {
-    
-        this.countStreams = count;
-    
 
+export class Parallel {
+  countStream: number;
+  freeCountSream: number;
+  waitFunctions: Function[];
+  count: number;
+  results: string[];
+  constructor(countStream: number) {
+    this.countStream = countStream;
+    this.freeCountSream = countStream;
+    this.waitFunctions = [];
+    this.count = 0;
+    this.results = [];
+  }
 
-    const jobs(...args: Function[]):Promise {
-        return Promise
-        const arrResult = [];
-        args.forEach(async (fn) => {
-            await new Promise((resolve) => setTimeout(resolve));
+  runFn(fn: Function, resolve: Function, args: number[]) {
+    Promise.resolve(fn()).then((result) => {
+      this.results.push(result);
+      this.count++;
+      this.freeCountSream++;
+      if (this.count >= args.length) {
+        resolve(this.results);
+      }
+      if (this.freeCountSream < this.countStream) {
+        const extractedFn = this.waitFunctions.splice(0, 1);
+        extractedFn[0] && this.runFn(extractedFn[0], resolve, args);
+        this.freeCountSream--;
+      }
+    });
+  }
+
+  jobs(...args: any) {
+    return new Promise((resolve, reject) => {
+      args.forEach((fn: Function) => {
+        const resFn = new Promise((resolveFn) => {
+          if (this.freeCountSream > 0) {
+            this.freeCountSream--;
+            resolveFn(fn);
+          } else {
+            this.waitFunctions.push(fn);
+          }
         });
-    }
+
+        resFn.then((fn: any) => {
+          this.runFn(fn, resolve, args);
+        });
+      });
+    });
+  }
 }
 
 const runner = new Parallel(2);
