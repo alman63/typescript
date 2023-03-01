@@ -7,7 +7,7 @@ export class Parallel {
 
   freeCountSream: number;
 
-  waitFunctions: Function[];
+  waitFunctions: any[];
 
   count: number;
 

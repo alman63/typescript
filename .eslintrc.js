@@ -35,5 +35,6 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 'off',
         'no-shadow': 'off',
         'no-nested-ternary': 'off',
+        'no-unused-expressions': 'off',
     },
 };
