@@ -1,11 +1,32 @@
-import { hof } from "./task1";
+import { myFunc, func } from './task1';
 
-describe("task1", () => {
-  it("test func hof", () => {
-    expect(hof(1, 2, 3, 4, 5)).toBe(15);
-    expect(hof(0, 0, 0, 0, 0)).toBe(0);
-    expect(hof(1, 2, 3, 4)(0)).toBe(10);
-    expect(hof(4, 5)(6)(7, 8)).toBe(30);
-    expect(hof(3, 4)(5, 6)(7)).toBe(25);
-  });
+describe('task1', () => {
+    it('test func hof(0)=0', () => {
+        const hof = myFunc(func);
+        expect(+hof()).toBe(0);
+    });
+    it('test func hof(5)(3)=8', () => {
+        const hof = myFunc(func);
+        expect(+hof(5)(3)).toBe(8);
+    });
+    it('test func hof(5,3)=8', () => {
+        const hof = myFunc(func);
+        expect(+hof(5, 3)).toBe(8);
+    });
+    it('test func hof(5,3,2)=10', () => {
+        const hof = myFunc(func);
+        expect(+hof(5, 3, 2)).toBe(10);
+    });
+    it('test func hof(5,3)(2)=10', () => {
+        const hof = myFunc(func);
+        expect(+hof(5, 3)(2)).toBe(10);
+    });
+    it('test func hof(5)(3)(2)=10', () => {
+        const hof = myFunc(func);
+        expect(+hof(5)(3)(2)).toBe(10);
+    });
+    it('test func hof(5)()(2)=7', () => {
+        const hof = myFunc(func);
+        expect(+hof(5)()(2)).toBe(7);
+    });
 });

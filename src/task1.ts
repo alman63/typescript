@@ -1,15 +1,12 @@
 /*Функция каррирования myFunc для исходной функции суммирования от 5 аргументов*/
-const func = (a: number, b: number, c: number, d: number, e: number): number =>
-  a + b + c + d + e;
-const myFunc = (fn: any) => {
-  const innerFn = (N: number, args: number[]) => {
-    return (...x: number[]) => {
-      if (N <= x.length) {
-        return fn(...args, ...x);
-      }
-      return innerFn(N - x.length, [...args, ...x]);
+export const func = (a = 0, b = 0) => a + b;
+export const myFunc = (fn: Function) => {
+    let sum = 0;
+    const innerFunc = (...b: number[]) => {
+        b.forEach((el) => (sum = fn(sum, el)));
+        return innerFunc;
     };
-  };
-  return innerFn(fn.length, []);
+    innerFunc.toString = () => sum;
+    innerFunc.valueOf = () => sum;
+    return innerFunc;
 };
-export const hof = myFunc(func);
