@@ -1,5 +1,5 @@
 export const spiral = function (matrix: number[][]): number[] {
-  let arrResult: number[] = [];
+  const arrResult: number[] = [];
   const N = matrix.length;
   let k = 0;
   const matrixLength: number = matrix.flat().length;

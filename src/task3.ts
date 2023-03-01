@@ -4,10 +4,15 @@
 
 export class Parallel {
   countStream: number;
+
   freeCountSream: number;
+
   waitFunctions: Function[];
+
   count: number;
+
   results: string[];
+
   constructor(countStream: number) {
     this.countStream = countStream;
     this.freeCountSream = countStream;
@@ -16,7 +21,7 @@ export class Parallel {
     this.results = [];
   }
 
-  runFn(fn: Function, resolve: Function, args: number[]) {
+  runFn(fn: any, resolve: any, args: number[]) {
     Promise.resolve(fn()).then((result) => {
       this.results.push(result);
       this.count++;
@@ -33,8 +38,8 @@ export class Parallel {
   }
 
   jobs(...args: any) {
-    return new Promise((resolve, reject) => {
-      args.forEach((fn: Function) => {
+    return new Promise((resolve) => {
+      args.forEach((fn: any) => {
         const resFn = new Promise((resolveFn) => {
           if (this.freeCountSream > 0) {
             this.freeCountSream--;
@@ -52,7 +57,7 @@ export class Parallel {
   }
 }
 
-const runner = new Parallel(2);
+// const runner = new Parallel(2);
 // console.log(
 //     await runner.jobs(
 //         () => new Promise((resolve) => setTimeout(resolve, 10, 1)),

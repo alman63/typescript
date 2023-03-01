@@ -31,5 +31,9 @@ module.exports = {
         'no-lonely-if': 'off',
         'spaced-comment': 'off',
         'no-param-reassign': 'off',
+        'no-return-assign': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        'no-shadow': 'off',
+        'no-nested-ternary': 'off',
     },
 };
