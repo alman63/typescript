@@ -18,7 +18,7 @@ describe("test Parallel", () => {
   it("Parallel [2, 3, 1]", async () => {
     const str = await new Parallel(2).jobs(
       () => new Promise((resolve) => setTimeout(resolve, 60, 2)),
-      () => new Promise((resolve) => setTimeout(resolve, 80, 1)),
+      () => new Promise((resolve) => setTimeout(resolve, 90, 1)),
       () => new Promise((resolve) => setTimeout(resolve, 10, 3))
     );
     expect(str).toEqual([2, 3, 1]);
