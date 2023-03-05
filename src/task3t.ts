@@ -1,4 +1,4 @@
-import { Parallel } from './task3';
+import { Parallel } from "./task3";
 
 // describe('test Parallel', () => {
 //     it('Parallel [1, 2]', async () => {
