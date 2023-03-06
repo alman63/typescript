@@ -9,7 +9,7 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v2
               with:
-                  node-version: 16.17.0
+                  node-version: [16.17.0]
             - name: Install Packages
               run: |
                   npm install
